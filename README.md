@@ -18,13 +18,6 @@ In the Database, you will find data extracted from one of our [Github Project](h
 
 The github data are base on the project [Waku](https://github.com/waku-org/).
 
-The database configuration:
-* host: `recruitment.free.technology`
-* port: `5432`
-* user: will be provided
-* password: will be provided
-* database name: `recuitment_task`
-* schemas: `raw_github`,`raw_finance`
 
 # solution
 This dbt project includes models for key performance indicators related to GitHub repository data. It covers:
@@ -32,8 +25,8 @@ This dbt project includes models for key performance indicators related to GitHu
 - Repartition of Issues: Provides insights on the distribution of issues across categories and assignees.
 - Project Cost: Tracks financial metrics, aggregating costs at various levels.
 - Repo Activity (POC): Proof of concept model that tracks activity across different repositories.
-Dashboards for these indicators are included in the `dbt_project/dashboards` directory, enabling visualization of the key metrics.
 
+Dashboards for these indicators are included in the `dbt_project/dashboards` directory, enabling visualization of the key metrics.
 
 # Proof of Concept: Tracking Activity on Different Repositories
 
@@ -65,9 +58,33 @@ dashboard will show repository activity:
 
 ## Usage
 
-* Deploy the container with `make run`
-* Shutdown the containers with `make down`
-* Build the dbt models with `make dbt-buidlt`
-* Compile the dbt models with `make dbt-compile`
+* Deploy the containers with `make up` to spin up the postgres, grafana and dbt services
 
-The data from the database and grafana are persisted with docker volumes.
+* Retrieve schema and tables from the remote PostgreSQL database. Use the credentials provided below to connect. You can then export the data from the remote database to the local database within the Docker container, either by using a migration tool like Fivetran/Airbyte or manually with a database tool like DBeaver.
+ 
+The database configuration:
+
+    Remote:
+        * host: `recruitment.free.technology`
+        * port: `5432`
+        * user: ******
+        * password: ******
+        * database name: `recuitment_task`
+        * schemas: `raw_github`,`raw_finance`
+    
+    local:
+        * host: `database`
+        * port: `5432`
+        * user: `admin`
+        * password: `Password`
+        * database name: `postgres`
+
+* Compile the dbt models with `make dbt-compile` to debugg and verify the SQL structure
+
+* Build the dbt models with `make dbt-build`
+
+* Login to the grafana with `http://localhost:3001` and credentials `admin` and `Password!`
+
+* Import grafana dashboard from the dashboard json files in the `dbt_project/dashboards` folder
+
+* Shutdown the containers with `make down`
