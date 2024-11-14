@@ -32,6 +32,11 @@ Dashboards for these indicators are included in the `dbt_project/dashboards` dir
 
 This Proof of Concept (PoC) is focused on tracking activity in GitHub repositories, covering metrics like issues, pull requests, and commits. The aim is to gather and organize this data, analyze trends, and create visualizations in Grafana for easy insights into repo activity.
 
+materializations used:
+- src data -> ehpemeral (no persisting intermediate tables in the database)
+- fact and dimention tables (to be referenced across multiple models or frequently accessed)
+
+
 we will get data based 
 - Issues: Opened, closed, and active issues per repo.
 - Pull Requests: Open and merged PRs.
