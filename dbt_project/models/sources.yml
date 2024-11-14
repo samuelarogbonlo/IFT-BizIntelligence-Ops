@@ -1,0 +1,150 @@
+version: 2
+
+sources:
+  - name: raw_finance
+    schema: raw_finance
+    tables:
+      - name: invoice
+        description: "Raw invoices data from the finance system"
+        columns:
+          - name: id
+            description: "Unique identifier for the invoice"
+          - name: date
+            description: "Date the invoice was created"
+          - name: currency
+            description: "Currency of the invoice amount"
+          - name: amount
+            description: "Amount of the invoice"
+          - name: department
+            description: "Department that created the invoice"
+          - name: comment
+            description: "Additional comments for the invoice"
+
+  - name: raw_github
+    schema: raw_github
+    tables:
+      - name: issues
+        description: "Raw issues data from GitHub"
+        columns:
+          - name: issue_id
+            description: "Unique identifier for the issue"
+          - name: issue_url
+            description: "URL of the issue"
+          - name: body
+            description: "Body of the issue"
+          - name: draft
+            description: "Draft status of the issue"
+          - name: state
+            description: "Current state of the issue"
+          - name: title
+            description: "Title of the issue"
+          - name: locked
+            description: "Indicates if the issue is locked"
+          - name: number
+            description: "Issue number"
+          - name: node_id
+            description: "Unique node identifier for the issue"
+          - name: user_id
+            description: "User ID of the creator"
+          - name: html_url
+            description: "HTML URL for the issue"
+          - name: closed_at
+            description: "Timestamp when the issue was closed"
+          - name: created_at
+            description: "Timestamp when the issue was created"
+          - name: events_url
+            description: "URL for issue events"
+          - name: labels_url
+            description: "URL for issue labels"
+          - name: repository
+            description: "Repository where the issue is tracked"
+          - name: updated_at
+            description: "Timestamp when the issue was last updated"
+          - name: comments_url
+            description: "URL for issue comments"
+          - name: pull_request
+            description: "Pull request associated with the issue"
+          - name: state_reason
+            description: "Reason for the current state of the issue"
+          - name: timeline_url
+            description: "URL for the issue's timeline"
+          - name: repository_url
+            description: "URL for the issue's repository"
+          - name: active_lock_reason
+            description: "Reason for the issue being actively locked"
+          - name: author_association
+            description: "Relationship of the issue's author to the repository"
+          - name: performed_via_github_app
+            description: "Indicates if the issue was performed via GitHub App"
+
+      - name: issues_labels
+        description: "Raw labels data associated with GitHub issues"
+        columns:
+          - name: issue_id
+            description: "Unique identifier for the issue"
+          - name: issue_url
+            description: "URL of the issue"
+          - name: label_name
+            description: "Name of the label associated with the issue"
+          - name: color
+            description: "Color code of the label"
+          - name: default
+            description: "Indicates whether the label is the default"
+          - name: description
+            description: "Description of the label"
+      
+
+      - name: issues_assignee
+        description: "Raw assignee data related to GitHub issues"
+        columns:
+          - name: issue_id
+            description: "Unique identifier for the issue"
+          - name: issue_url
+            description: "URL of the issue"
+          - name: type
+            description: "Type of the assignee (e.g., user or bot)"
+          - name: login
+            description: "GitHub login of the assignee"
+          - name: gists_url
+            description: "URL of the user's gists"
+          - name: repos_url
+            description: "URL of the user's repositories"
+          - name: avatar_url
+            description: "URL of the user's avatar image"
+          - name: site_admin
+            description: "Indicates if the assignee is a site admin"
+          - name: gravatar_id
+            description: "Gravatar ID associated with the user"
+          - name: starred_url
+            description: "URL for the user's starred repositories"
+          - name: followers_url
+            description: "URL for the user's followers"
+          - name: following_url
+            description: "URL for the users that the assignee follows"
+          - name: organizations_url
+            description: "URL for the assignee's organizations"
+          - name: subscriptions_url
+            description: "URL for the assignee's subscriptions"
+          - name: received_events_url
+            description: "URL for events received by the assignee"
+      
+
+      - name: issues_milestone
+        description: "Raw milestone data related to GitHub issues"
+        columns:
+          - name: issue_id
+            description: "Unique identifier for the issue"
+          - name: issue_url
+            description: "URL of the issue"
+          - name: due_on
+            description: "Due date for the milestone"
+          - name: creator
+            description: "Creator of the milestone"
+          - name: labels_url
+            description: "URL for the milestone's labels"
+          - name: description
+            description: "Description of the milestone"
+          - name: open_issues
+            description: "Number of open issues within the milestone"
+          - name: closed_issues
+            description: "Number of closed issues within the milestone"
