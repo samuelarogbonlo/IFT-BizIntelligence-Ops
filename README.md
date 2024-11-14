@@ -12,9 +12,9 @@ One goal of the BI team is to design and implement dashboards to help Projects L
 Those dashboards will be use for the progress reporting, evaluating the project adoption, and identify improvment.
 
 In the Database, you will find data extracted from one of our [Github Project](https://github.com/waku-org/) and wake financial data. With those, create some indicators concerning:
-* The repartition of the issues.
-* The activity on different repos.
-* The Cost of the project.
+ - The repartition of the issues.
+ - The activity on different repos.
+ - The Cost of the project.
 
 The github data are base on the project [Waku](https://github.com/waku-org/).
 
@@ -44,9 +44,9 @@ then model the data based on:
 - Dimensions: `dim_repos`, `dim_users`, `dim_activity_types`. which will will contain metadata about the repositories, users, and activity types.
 
 then aggregate and visualize the data based on:
-Repo -> Total number of issues, PRs, and commits.
-Time period -> Activity per day, week, or month.
-User -> Track user activity by number of issues assigned, PRs opened, etc.
+- Repo -> Total number of issues, PRs, and commits.
+- Time period -> Activity per day, week, or month.
+- User -> Track user activity by number of issues assigned, PRs opened, etc.
 
 dashboard will show repository activity:
 Total Issues & PRs per Repo eg Bar charts to show the number of issues and PRs per repository.
