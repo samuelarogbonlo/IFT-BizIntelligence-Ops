@@ -26,7 +26,13 @@ The database configuration:
 * database name: `recuitment_task`
 * schemas: `raw_github`,`raw_finance`
 
-This repo contain a preconfigured partial stack to let you focus on the data manipulation. However, you are free to use any free technology you like, on the condition we can easily reproduce the result.
+# solution
+This dbt project includes models for key performance indicators related to GitHub repository data. It covers:
+
+- Repartition of Issues: Provides insights on the distribution of issues across categories and assignees.
+- Project Cost: Tracks financial metrics, aggregating costs at various levels.
+- Repo Activity (POC): Proof of concept model that tracks activity across different repositories.
+Dashboards for these indicators are included in the `dbt_project/dashboards` directory, enabling visualization of the key metrics.
 
 
 # Proof of Concept: Tracking Activity on Different Repositories
@@ -49,9 +55,9 @@ then aggregate and visualize the data based on:
 - User -> Track user activity by number of issues assigned, PRs opened, etc.
 
 dashboard will show repository activity:
-Total Issues & PRs per Repo eg Bar charts to show the number of issues and PRs per repository.
-Commits over Time eg Line charts to visualize commits per repo over time.
-User Activity eg Pie charts for activity distribution across users (who is most active in terms of issues and PRs).
+- Total Issues & PRs per Repo eg Bar charts to show the number of issues and PRs per repository.
+- Commits over Time eg Line charts to visualize commits per repo over time.
+- User Activity eg Pie charts for activity distribution across users (who is most active in terms of issues and PRs).
 
 ## Requirements
 
