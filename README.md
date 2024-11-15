@@ -9,51 +9,51 @@ This repo provide a set of preconfigured tools that can be used for the recruitm
 ## Tasks
 
 One goal of the BI team is to design and implement dashboards to help Projects Lead have an overview of their project.
-Those dashboards will be use for the progress reporting, evaluating the project adoption, and identify improvment.
+Those dashboards will be used for progress reporting, evaluating the project adoption, and identifying improvement.
 
 In the Database, you will find data extracted from one of our [Github Project](https://github.com/waku-org/) and wake financial data. With those, create some indicators concerning:
  - The repartition of the issues.
  - The activity on different repos.
  - The Cost of the project.
 
-The github data are base on the project [Waku](https://github.com/waku-org/).
+The GitHub data are based on the project [Waku](https://github.com/waku-org/).
 
 
-# Solution
+# Next Steps
 This DBT project includes models for key performance indicators related to GitHub repository data. It covers:
 
 - Repartition of Issues: Provides insights on the distribution of issues across categories and assignees.
 - Project Cost: Tracks financial metrics, aggregating costs at various levels.
 - Repo Activity (POC): Proof of concept model that tracks activity across different repositories.
 
-Dashboards for these indicators are included in the `dbt_project/dashboards` directory, enabling visualization of the key metrics.
+The `dbt_project/dashboards` directory includes dashboards for these indicators, enabling visualization of the key metrics.
 
 # Proof Of Concept: Tracking Activity On Different Repositories
 
 This Proof of Concept (PoC) is focused on tracking activity in GitHub repositories, covering metrics like issues, pull requests, and commits. The aim is to gather and organize this data, analyze trends, and create visualizations in Grafana for easy insights into repo activity.
 
 Materializations used:
-- src data -> ehpemeral (no persisting intermediate tables in the database)
-- fact and dimention tables (to be referenced across multiple models or frequently accessed)
+- src data -> ephemeral (no persisting intermediate tables in the database)
+- fact and dimension tables (to be referenced across multiple models or frequently accessed)
 
-We will get data based:
+We will get data based on the following:
 - Issues: Opened, closed, and active issues per repo.
 - Pull Requests: Open and merged PRs.
 - Commits: Number of commits per repo.
 
-Then model the data based on:
-- Fact: `fact_repo_activity` which contains Aggregated repo activity data (issues, PRs, commits, etc.).
-- Dimensions: `dim_repos`, `dim_users`, `dim_activity_types`. which will will contain metadata about the repositories, users, and activity types.
+Then, model the data based on the following:
+- Fact: `fact_repo_activity` contains aggregated repo activity data (issues, PRs, commits, etc.).
+- Dimensions: `dim_repos`, `dim_users`, `dim_activity_types`. which will contain metadata about the repositories, users, and activity types.
 
-Then aggregate and visualize the data based on:
+Then, aggregate and visualize the data based on:
 - Repo -> Total number of issues, PRs, and commits.
 - Time period -> Activity per day, week, or month.
 - User -> Track user activity by number of issues assigned, PRs opened, etc.
 
-Then the dashboard will show repository activity:
-- Total Issues & PRs per Repo eg Bar charts to show the number of issues and PRs per repository.
-- Commits over Time eg Line charts to visualize commits per repo over time.
-- User Activity eg Pie charts for activity distribution across users (who is most active in terms of issues and PRs).
+Then, the dashboard will show the repository activity:
+- Total Issues & PRs per Repo, e.g., bar charts, are used to show the number of issues and PRs per repository.
+- Commits over Time, e.g. Line charts to visualize commits per repo over time.
+- User Activity, e.g. Pie charts for activity distribution across users (who is most active in terms of issues and PRs).
 
 ## Requirements
 
@@ -86,9 +86,9 @@ The database configuration:
         * database name: `postgres`
 
 > **_NOTE_**
-> - Under the local DB setup on dbeaver, in Database/postgres/schemes directory, create `raw_github` and `raw_finance`. Due to the fact that the data is read-only, we will be copying the data manually from `remote` to `local` and you can follow the instructions in the documentation [here](https://dbeaver.com/docs/dbeaver/Data-migration/). Also, we do not have write-access to the DB so we cannot explore DBT to automatically write models and create new tables on the remote DB.
+> - Under the local DB setup on dbeaver, in Database/postgres/schemes directory, create `raw_github` and `raw_finance`. Due to the fact that the data is read-only, we will be copying the data manually from `remote` to `local`, and you can follow the instructions in the documentation [here](https://dbeaver.com/docs/dbeaver/Data-migration/). Also, we do not have write access to the DB, so we cannot explore DBT to automatically write models and create new tables on the remote DB.
 
-* Compile the dbt models to debug and verify the SQL structure
+* Compile the DBT models to debug and verify the SQL structure
 ```
 make dbt-compile
 ```
@@ -101,7 +101,7 @@ make dbt-build
 Username: admin
 Password: Password!
 ```
-* Import grafana dashboards from the dashboard json files in the `grafana/dashboards` folder. For ease of access and central control of all Grafana files, the dashoards were moved.
+* Import grafana dashboards from the dashboard JSON files in the `grafana/dashboards` folder. For ease of access and central control of all Grafana files, the dashboards were moved.
 * Shutdown the containers with `make down`
 
 ## Author
