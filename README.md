@@ -55,6 +55,11 @@ Then, the dashboard will show the repository activity:
 - Commits over Time, e.g. Line charts to visualize commits per repo over time.
 - User Activity, e.g. Pie charts for activity distribution across users (who is most active in terms of issues and PRs).
 
+Finally, we can implement some data testing procedures as follows:
+- Using built-in test capabilities in DBT for data validation, e.g unique check, not-null check, etc.
+- implementing audit for columns for the metadata
+- Setting up alerts for data anomalies by probably using a DBT test JSON file to log test results and then use a small Python service to trigger an alert if things go out of those results 
+
 ## Requirements
 
 * Docker
@@ -86,7 +91,7 @@ The database configuration:
         * database name: `postgres`
 
 > **_NOTE_**
-> - Under the local DB setup on dbeaver, in Database/postgres/schemes directory, create `raw_github` and `raw_finance`. Due to the fact that the data is read-only, we will be copying the data manually from `remote` to `local`, and you can follow the instructions in the documentation [here](https://dbeaver.com/docs/dbeaver/Data-migration/). Also, we do not have write access to the DB, so we cannot explore DBT to automatically write models and create new tables on the remote DB.
+> - Under the local DB setup on dbeaver, in the Database/postgres/schemes directory, create `raw_github` and `raw_finance`. Due to the fact that the data is read-only, we will be copying the data manually from `remote` to `local`, and you can follow the instructions in the documentation [here](https://dbeaver.com/docs/dbeaver/Data-migration/). Also, we do not have write access to the DB, so we cannot explore DBT to automatically write models and create new tables on the remote DB.
 
 * Compile the DBT models to debug and verify the SQL structure
 ```
@@ -101,8 +106,10 @@ make dbt-build
 Username: admin
 Password: Password!
 ```
-* Import grafana dashboards from the dashboard JSON files in the `grafana/dashboards` folder. For ease of access and central control of all Grafana files, the dashboards were moved.
+* Import grafana dashboards from the dashboard JSON files in the `grafana/dashboards` folder. The dashboards were moved to the current directory above for ease of access and central control of all Grafana files. With the dashboards, depending on the data that needs to be reviewed, you can define key data quality metrics and monitor these regularly.
 * Shutdown the containers with `make down`
+
+Based on the solution provided by integrating PostgreSQL, DBT, and Grafana, we've established a robust data pipeline for data extraction, transformation, and visualization.
 
 ## Author
 - Samuel Arogbonlo - [GitHub](https://github.com/samuelarogbonlo)
