@@ -1,4 +1,4 @@
-# BI Recruitment Task
+# BI Operations Task
 
 This repo provide a set of preconfigured tools that can be used for the recruitment task for IFT:
 
@@ -101,7 +101,7 @@ make dbt-build
 Username: admin
 Password: Password!
 ```
-* Import grafana dashboards from the dashboard json files in the `grafana/dashboards` folder
+* Import grafana dashboards from the dashboard json files in the `grafana/dashboards` folder. For ease of access and central control of all Grafana files, the dashoards were moved.
 * Shutdown the containers with `make down`
 
 ## Author
