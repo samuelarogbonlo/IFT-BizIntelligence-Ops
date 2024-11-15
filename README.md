@@ -5,6 +5,9 @@ This repo provide a set of preconfigured tools that can be used for the recruitm
 * PostgreSQL database
 * DBT
 * Grafana
+* Docker
+* DBeaver Software
+* DBT-Utils. Get more details [here](https://docs.getdbt.com/docs/build/packages) and also be aware that many time because of version conflicts, python packkages clashes etc, I recommend you run the installation in a local virtual enviroment
 
 ## Tasks
 
@@ -60,11 +63,6 @@ Finally, we can implement some data testing procedures as follows:
 - implementing audit for columns for the metadata
 - Setting up alerts for data anomalies by probably using a DBT test JSON file to log test results and then use a small Python service to trigger an alert if things go out of those results
 
-## Requirements
-
-* Docker
-* DBeaver Software
-* DBT-Utils. Get more details [here](https://docs.getdbt.com/docs/build/packages) and also be aware that many time because of version conflicts, python packkages clashes etc, I recommend you run the installation in a local virtual enviroment
 
 ## Usage
 
