@@ -72,7 +72,7 @@ Finally, we can implement some data testing procedures as follows:
 ```
 make up
 ```
-* Retrieve schema and tables from the remote PostgreSQL database. Use the credentials provided below to connect. You can then export the data from the remote database to the local database within the Docker container, either by using a migration tool like Fivetran/Airbyte or manually with a database software called DBeaver.
+* Open DBeaver to Retrieve schema and tables from the remote PostgreSQL database. Use the credentials provided below to connect by adding two new connections for Remote and local respectively. You can then export the data from the remote database to the local database within the Docker container, either by using a migration tool like Fivetran/Airbyte or manually with a database software called DBeaver.
 
 The database configuration:
 
