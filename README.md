@@ -113,7 +113,7 @@ Password: Password!
 Based on the solution provided by integrating PostgreSQL, DBT, and Grafana, we've established a robust data pipeline for data extraction, transformation, and visualization.
 
 > **_NOTE_**
-- The `dbt-utils` package was installed to set up the project for future scalability for good practices in data transformations and testing. While it is not directly used here, I believe its inclusion reflects an approach to ensure the project can easily incorporate advanced features and data quality checks in subsequent iterations in the future.
+> - The `dbt-utils` package was installed to set up the project for future scalability for good practices in data transformations and testing. While it is not directly used here, I believe its inclusion reflects an approach to ensure the project can easily incorporate advanced features and data quality checks in subsequent iterations in the future.
 
 ## Author
 - Samuel Arogbonlo - [GitHub](https://github.com/samuelarogbonlo)
