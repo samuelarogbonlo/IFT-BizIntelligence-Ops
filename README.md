@@ -73,7 +73,7 @@ The database configuration:
     Remote:
         * host: `recruitment.free.technology`
         * port: `5432`
-        * user: ******
+        * user: ****** 
         * password: ******
         * database name: `recuitment_task`
         * schemas: `raw_github`,`raw_finance`
@@ -99,7 +99,7 @@ make dbt-build
 * Login to the grafana with [here](http://localhost:3001) and credentials are below
 ```
 Username: admin
-Password: Password
+Password: Password!
 ```
 * Import grafana dashboards from the dashboard json files in the `grafana/dashboards` folder
 * Shutdown the containers with `make down`
