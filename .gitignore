@@ -1,1 +1,6 @@
 postgres/data
+dbt-env/
+logs/
+target/
+dbt_packages/
+.user.yml

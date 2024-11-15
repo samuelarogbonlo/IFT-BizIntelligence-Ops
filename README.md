@@ -58,12 +58,13 @@ Then, the dashboard will show the repository activity:
 Finally, we can implement some data testing procedures as follows:
 - Using built-in test capabilities in DBT for data validation, e.g unique check, not-null check, etc.
 - implementing audit for columns for the metadata
-- Setting up alerts for data anomalies by probably using a DBT test JSON file to log test results and then use a small Python service to trigger an alert if things go out of those results 
+- Setting up alerts for data anomalies by probably using a DBT test JSON file to log test results and then use a small Python service to trigger an alert if things go out of those results
 
 ## Requirements
 
 * Docker
 * DBeaver Software
+* DBT-Utils. Get more details [here](https://docs.getdbt.com/docs/build/packages) and also be aware that many time because of version conflicts, python packkages clashes etc, I recommend you run the installation in a local virtual enviroment
 
 ## Usage
 
@@ -78,9 +79,9 @@ The database configuration:
     Remote:
         * host: `recruitment.free.technology`
         * port: `5432`
-        * user: ****** 
+        * user: ******
         * password: ******
-        * database name: `recuitment_task`
+        * database name: `recruitment_task`
         * schemas: `raw_github`,`raw_finance`
 
     local:
@@ -110,6 +111,9 @@ Password: Password!
 * Shutdown the containers with `make down`
 
 Based on the solution provided by integrating PostgreSQL, DBT, and Grafana, we've established a robust data pipeline for data extraction, transformation, and visualization.
+
+> **_NOTE_**
+- The `dbt-utils` package was installed to set up the project for future scalability for good practices in data transformations and testing. While it is not directly used here, I believe its inclusion reflects an approach to ensure the project can easily incorporate advanced features and data quality checks in subsequent iterations in the future.
 
 ## Author
 - Samuel Arogbonlo - [GitHub](https://github.com/samuelarogbonlo)
