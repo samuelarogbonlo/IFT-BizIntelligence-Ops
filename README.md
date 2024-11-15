@@ -66,7 +66,7 @@ Then the dashboard will show repository activity:
 ```
 make up
 ```
-* Retrieve schema and tables from the remote PostgreSQL database. Use the credentials provided below to connect. You can then export the data from the remote database to the local database within the Docker container, either by using a migration tool like Fivetran/Airbyte or manually with a database tool like DBeaver.
+* Retrieve schema and tables from the remote PostgreSQL database. Use the credentials provided below to connect. You can then export the data from the remote database to the local database within the Docker container, either by using a migration tool like Fivetran/Airbyte or manually with a database software called DBeaver.
 
 The database configuration:
 
@@ -79,11 +79,14 @@ The database configuration:
         * schemas: `raw_github`,`raw_finance`
 
     local:
-        * host: `database`
+        * host: `localhost`
         * port: `5432`
         * user: `admin`
         * password: `Password`
         * database name: `postgres`
+
+> **_NOTE_**
+> - Under the local DB setup on dbeaver, in Database/postgres/schemes directory, create `raw_github` and `raw_finance`. Due to the fact that the data is read-only, we will be copying the data manually from `remote` to `local` and you can follow the instructions in the documentation [here](https://dbeaver.com/docs/dbeaver/Data-migration/). Also, we do not have write-access to the DB so we cannot explore DBT to automatically write models and create new tables on the remote DB.
 
 * Compile the dbt models to debug and verify the SQL structure
 ```
@@ -93,10 +96,16 @@ make dbt-compile
 ```
 make dbt-build
 ```
-* Login to the grafana with `http://localhost:3001` and credentials are below
+* Login to the grafana with [here](http://localhost:3001) and credentials are below
 ```
 Username: admin
 Password: Password
 ```
-* Import grafana dashboard from the dashboard json files in the `dbt_project/dashboards` folder
+* Import grafana dashboards from the dashboard json files in the `grafana/dashboards` folder
 * Shutdown the containers with `make down`
+
+## Author
+- Samuel Arogbonlo - [GitHub](https://github.com/samuelarogbonlo)
+
+## License
+The MIT License (http://www.opensource.org/licenses/mit-license.php)
