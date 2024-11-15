@@ -57,7 +57,8 @@ Then the dashboard will show repository activity:
 
 ## Requirements
 
-* Have docker installed
+* Docker
+* DBeaver Software
 
 ## Usage
 
@@ -84,7 +85,7 @@ The database configuration:
         * password: `Password`
         * database name: `postgres`
 
-* Compile the dbt models to debugg and verify the SQL structure
+* Compile the dbt models to debug and verify the SQL structure
 ```
 make dbt-compile
 ```
